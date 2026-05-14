@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction System</h1>
+        
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> The model is functionally complete and can be integrated into a web application for predictions. However, for real-world medical deployment, it would require further validation, larger datasets, and performance improvements.</p>
+        </div>
+        
+        <form action="/predict" method="POST" class="prediction-form">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required min="1" max="120">
+            </div>
+            
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex" required>
+                    <option value="1">Male (1)</option>
+                    <option value="0">Female (0)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cp">Chest Pain Type (cp):</label>
+                <select id="cp" name="cp" required>
+                    <option value="0">0: Typical Angina</option>
+                    <option value="1">1: Atypical Angina</option>
+                    <option value="2">2: Non-anginal Pain</option>
+                    <option value="3">3: Asymptomatic</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="trestbps">Resting Blood Pressure (trestbps):</label>
+                <input type="number" id="trestbps" name="trestbps" required min="50" max="250">
+            </div>
+            
+            <div class="form-group">
+                <label for="chol">Serum Cholesterol (chol):</label>
+                <input type="number" id="chol" name="chol" required min="100" max="600">
+            </div>
+            
+            <div class="form-group">
+                <label for="fbs">Fasting Blood Sugar > 120 mg/dl (fbs):</label>
+                <select id="fbs" name="fbs" required>
+                    <option value="1">Yes (1)</option>
+                    <option value="0">No (0)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="restecg">Resting Electrocardiographic Results (restecg):</label>
+                <select id="restecg" name="restecg" required>
+                    <option value="0">0: Normal</option>
+                    <option value="1">1: Having ST-T wave abnormality</option>
+                    <option value="2">2: Showing probable or definite left ventricular hypertrophy</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="thalach">Maximum Heart Rate Achieved (thalach):</label>
+                <input type="number" id="thalach" name="thalach" required min="60" max="220">
+            </div>
+            
+            <div class="form-group">
+                <label for="exang">Exercise Induced Angina (exang):</label>
+                <select id="exang" name="exang" required>
+                    <option value="1">Yes (1)</option>
+                    <option value="0">No (0)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="oldpeak">ST Depression Induced by Exercise (oldpeak):</label>
+                <input type="number" id="oldpeak" name="oldpeak" step="0.1" required min="0" max="10">
+            </div>
+            
+            <div class="form-group">
+                <label for="slope">Slope of the Peak Exercise ST Segment (slope):</label>
+                <select id="slope" name="slope" required>
+                    <option value="0">0: Upsloping</option>
+                    <option value="1">1: Flat</option>
+                    <option value="2">2: Downsloping</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="ca">Number of Major Vessels (ca):</label>
+                <select id="ca" name="ca" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="thal">Thalassemia (thal):</label>
+                <select id="thal" name="thal" required>
+                    <option value="1">1: Normal</option>
+                    <option value="2">2: Fixed Defect</option>
+                    <option value="3">3: Reversible Defect</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="submit-btn">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
